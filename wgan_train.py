@@ -58,8 +58,11 @@ def train_wgan(X_train,
     one = torch.tensor(1, dtype = torch.float).to(device)
     mone = one * -1
     mone = mone.to(device)  
-    path_to_save_models = os.path.join(path_to_save, 'models')
-    path_to_save_plots = os.path.join(path_to_save, 'plots')
+    #path_to_save_models = os.path.join(path_to_save, 'models')
+    #path_to_save_plots = os.path.join(path_to_save, 'plots')
+    path_to_save_models = '.'
+    path_to_save_plots = '.'
+
 
     try:
         for epoch in range(num_epochs):
@@ -153,13 +156,14 @@ def train_wgan(X_train,
                                    path_to_save_plots,
                                    batch_size_sample,
                                    proj_list)
-               cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
+               #cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
 
-               discriminator_model_name = cur_time + '_discriminator.pth'
-               generator_model_name = cur_time + '_generator.pth'
+               discriminator_model_name = 'discriminator.pth'
+               generator_model_name = 'generator.pth'
 
-               path_to_discriminator = os.path.join(path_to_save_models, discriminator_model_name)
-               path_to_generator = os.path.join(path_to_save_models, generator_model_name)
+               path_to_discriminator = discriminator_model_name
+               path_to_generator = generator_model_name
+               
 
                torch.save(discriminator.state_dict(), path_to_discriminator)
                torch.save(generator.state_dict(), path_to_generator)

@@ -64,9 +64,9 @@ def sample_fake_data(generator, X_train, epoch, path_to_save, batch_size_sample 
     plt.legend()
     plt.grid(True)
     if path_to_save is not None:
-       cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
-       plot_name = cur_time + f'_wgan_sampling_{epoch}_epoch.pdf'
-       path_to_plot = os.path.join(path_to_save, plot_name)
+       #cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
+       plot_name = 'wgan_sampling_epoch.pdf'
+       path_to_plot = '.'
        plt.savefig(path_to_plot)
 
     else:
@@ -94,9 +94,9 @@ def visualize_fake_data_projection(fake_data, X_train, path_to_save, proj_1, pro
     plt.legend()
     plt.grid(True)
     if path_to_save is not None:
-       cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
-       plot_name = cur_time + f"_wgan_sampling_" + mode + f"_proj1_{proj_1}_proj2_{proj_2}.pdf"
-       path_to_plot = os.path.join(path_to_save, plot_name)
+       #cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
+       plot_name = f'wgan_sampling_{mode}_proj1_{proj_1}_proj2_{proj_2}.pdf'
+       path_to_plot = '.'
        plt.savefig(path_to_plot)
 
     else:
@@ -128,9 +128,9 @@ def epoch_visualization(X_train, generator,
     axs[1].plot(generator_mean_loss_arr, 'r', label = 'generator loss')
     axs[0].legend()
     axs[1].legend()
-    cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
-    plot_name = cur_time + f'_wgan_losses_{epoch}_epoch.pdf'
-    path_to_plot = os.path.join(path_to_save, plot_name)
+    #cur_time = datetime.datetime.now().strftime('%Y_%m_%d-%H_%M_%S')
+    plot_name = 'wgan_losses_epoch.pdf'
+    path_to_plot = '.'
     fig.savefig(path_to_plot)
 
     if proj_list is None:
